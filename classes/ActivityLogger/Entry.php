@@ -9,48 +9,36 @@
 
 namespace IvoPetkov\BearFrameworkAddons\ActivityLogger;
 
+use \BearFramework\Models\Model;
+
 /**
- * @property ?string $key
  * @property ?string $type
- * @property ?DateTime $date
+ * @property DateTime $date
  * @property ?string $title
  * @property ?string $description
  * @property array $data
  */
-class Entry
+class Entry extends Model
 {
-
-    use \IvoPetkov\DataObjectTrait;
-    use \IvoPetkov\DataObjectToArrayTrait;
-    use \IvoPetkov\DataObjectToJSONTrait;
-    use \IvoPetkov\DataObjectFromArrayTrait;
-    use \IvoPetkov\DataObjectFromJSONTrait;
 
     function __construct()
     {
-        $this->defineProperty('key', [
-            'type' => '?string',
-            'set' => function($value) {
-                if (preg_match('/^[0-9a-z]+$/', $value) === false) {
-                    throw new Exception('The key can contain only lowercase letters and numbers');
-                }
-                return $value;
-            }
-        ]);
-        $this->defineProperty('type', [
-            'type' => '?string'
-        ]);
-        $this->defineProperty('date', [
-            'type' => '?DateTime'
-        ]);
-        $this->defineProperty('title', [
-            'type' => '?string'
-        ]);
-        $this->defineProperty('description', [
-            'type' => '?string'
-        ]);
-        $this->defineProperty('data', [
-            'type' => 'array'
+        parent::__construct();
+        $this
+                ->defineProperty('type', [
+                    'type' => '?string'
+                ])
+                ->defineProperty('date', [
+                    'type' => 'DateTime'
+                ])
+                ->defineProperty('title', [
+                    'type' => '?string'
+                ])
+                ->defineProperty('description', [
+                    'type' => '?string'
+                ])
+                ->defineProperty('data', [
+                    'type' => 'array'
         ]);
     }
 

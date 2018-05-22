@@ -14,7 +14,7 @@
     "require": {
         "php": ">=7.1",
         "bearframework/bearframework": "0.10.*",
-        "ivopetkov/data-object": "0.5.*"
+        "bearframework/models-addon": "0.2.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8"
