@@ -3,7 +3,7 @@
 /*
  * Activity logger addon for Bear Framework
  * https://github.com/ivopetkov/activity-logger-bearframework-addon
- * Copyright (c) 2018 Ivo Petkov
+ * Copyright (c) Ivo Petkov
  * Free to use under the MIT license.
  */
 
