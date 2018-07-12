@@ -10,7 +10,7 @@
 /**
  * @runTestsInSeparateProcesses
  */
-class ActivityLoggerTest extends BearFrameworkAddonTestCase
+class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
 {
 
     /**
