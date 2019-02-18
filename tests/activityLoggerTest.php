@@ -44,10 +44,10 @@ class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
         $app = $this->getApp();
         $activityLogger = $app->activityLogger->makeContext('user-123');
 
-        $this->assertTrue($activityLogger->getList()->length === 0);
+        $this->assertTrue($activityLogger->getList()->count() === 0);
         $entry1 = $activityLogger->log('account', ['action' => 'login']);
         $entry2 = $activityLogger->log('account', ['action' => 'logout']);
-        $this->assertTrue($activityLogger->getList()->length === 2);
+        $this->assertTrue($activityLogger->getList()->count() === 2);
         $this->assertTrue($activityLogger->exists($entry1->key));
         $this->assertTrue($activityLogger->exists($entry2->key));
         $this->assertTrue($activityLogger->get($entry1->key)->key === $entry1->key);
@@ -55,11 +55,11 @@ class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
         $activityLogger->delete($entry1->key);
         $this->assertTrue($activityLogger->exists($entry1->key) === false);
         $this->assertTrue($activityLogger->get($entry1->key) === null);
-        $this->assertTrue($activityLogger->getList()->length === 1);
+        $this->assertTrue($activityLogger->getList()->count() === 1);
         $activityLogger->delete($entry2->key);
         $this->assertTrue($activityLogger->exists($entry2->key) === false);
         $this->assertTrue($activityLogger->get($entry2->key) === null);
-        $this->assertTrue($activityLogger->getList()->length === 0);
+        $this->assertTrue($activityLogger->getList()->count() === 0);
     }
 
     /**
@@ -74,10 +74,10 @@ class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
         $activityLogger2 = $app->activityLogger->makeContext('user-2');
         $activityLogger2->log('account', ['action' => 'pay-order-2']);
 
-        $this->assertTrue($activityLogger1->getList()->length === 1);
+        $this->assertTrue($activityLogger1->getList()->count() === 1);
         $this->assertTrue($activityLogger1->toArray()[0]['data']['action'] === 'pay-order-1');
 
-        $this->assertTrue($activityLogger2->getList()->length === 1);
+        $this->assertTrue($activityLogger2->getList()->count() === 1);
         $this->assertTrue($activityLogger2->toArray()[0]['data']['action'] === 'pay-order-2');
     }
 

@@ -12,6 +12,7 @@ namespace IvoPetkov\BearFrameworkAddons\ActivityLogger;
 use \BearFramework\Models\Model;
 
 /**
+ * @property string $key
  * @property ?string $type
  * @property DateTime $date
  * @property ?string $title
@@ -23,8 +24,13 @@ class Entry extends Model
 
     function __construct()
     {
-        parent::__construct();
         $this
+                ->defineProperty('key', [
+                    'type' => 'string',
+                    'init' => function() {
+                        return md5(uniqid());
+                    }
+                ])
                 ->defineProperty('type', [
                     'type' => '?string'
                 ])

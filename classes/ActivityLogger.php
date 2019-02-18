@@ -9,7 +9,6 @@
 
 namespace IvoPetkov\BearFrameworkAddons;
 
-use BearFramework\App;
 use \BearFramework\Models\ModelsRepository;
 
 /**
@@ -18,10 +17,10 @@ use \BearFramework\Models\ModelsRepository;
 class ActivityLogger extends ModelsRepository
 {
 
-    public function __construct()
+    public function __construct(string $contextID = null)
     {
-        $this->setModel(\IvoPetkov\BearFrameworkAddons\ActivityLogger\Entry::class);
-        $this->useAppDataDriver('ivopetkov-activity-logger');
+        $this->setModel(\IvoPetkov\BearFrameworkAddons\ActivityLogger\Entry::class, 'key');
+        $this->useAppDataDriver('ivopetkov-activity-logger/' . (strlen($contextID) > 0 ? $contextID . '/' : ''));
     }
 
     /**
