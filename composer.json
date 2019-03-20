@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "bearframework/bearframework": "0.11.*",
+        "bearframework/bearframework": "1.*",
         "bearframework/models-addon": "0.3.*"
     },
     "require-dev": {
