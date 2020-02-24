@@ -25,27 +25,26 @@ class Entry extends Model
     function __construct()
     {
         $this
-                ->defineProperty('key', [
-                    'type' => 'string',
-                    'init' => function() {
-                        return md5(uniqid());
-                    }
-                ])
-                ->defineProperty('type', [
-                    'type' => '?string'
-                ])
-                ->defineProperty('date', [
-                    'type' => 'DateTime'
-                ])
-                ->defineProperty('title', [
-                    'type' => '?string'
-                ])
-                ->defineProperty('description', [
-                    'type' => '?string'
-                ])
-                ->defineProperty('data', [
-                    'type' => 'array'
-        ]);
+            ->defineProperty('key', [
+                'type' => 'string',
+                'init' => function () {
+                    return md5(uniqid());
+                }
+            ])
+            ->defineProperty('type', [
+                'type' => '?string'
+            ])
+            ->defineProperty('date', [
+                'type' => 'DateTime'
+            ])
+            ->defineProperty('title', [
+                'type' => '?string'
+            ])
+            ->defineProperty('description', [
+                'type' => '?string'
+            ])
+            ->defineProperty('data', [
+                'type' => 'array'
+            ]);
     }
-
 }
