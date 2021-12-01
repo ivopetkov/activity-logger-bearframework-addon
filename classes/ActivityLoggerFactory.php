@@ -19,12 +19,11 @@ class ActivityLoggerFactory
 
     /**
      * 
-     * @param type $contextID
+     * @param string $contextID
      * @return \IvoPetkov\BearFrameworkAddons\ActivityLogger
      */
-    public function makeContext($contextID): \IvoPetkov\BearFrameworkAddons\ActivityLogger
+    public function makeContext(string $contextID): \IvoPetkov\BearFrameworkAddons\ActivityLogger
     {
         return new \IvoPetkov\BearFrameworkAddons\ActivityLogger($contextID);
     }
-
 }
