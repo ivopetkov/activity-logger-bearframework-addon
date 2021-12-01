@@ -30,7 +30,7 @@ class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
         $entry->date = \DateTime::createFromFormat('U', time() - 10);
         $activityLogger->set($entry);
         $list = $activityLogger->getList()
-                ->sortBy('date', 'asc');
+            ->sortBy('date', 'asc');
         $this->assertTrue($list[0]->data['action'] === 'register');
         $this->assertTrue($list[1]->data['action'] === 'login');
         $this->assertTrue($list[2]->data['action'] === 'logout');
@@ -80,5 +80,4 @@ class ActivityLoggerTest extends BearFramework\AddonTests\PHPUnitTestCase
         $this->assertTrue($activityLogger2->getList()->count() === 1);
         $this->assertTrue($activityLogger2->toArray()[0]['data']['action'] === 'pay-order-2');
     }
-
 }

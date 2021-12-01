@@ -13,11 +13,11 @@ $app = App::get();
 $context = $app->contexts->get(__DIR__);
 
 $context->classes
-        ->add('IvoPetkov\BearFrameworkAddons\ActivityLogger', 'classes/ActivityLogger.php')
-        ->add('IvoPetkov\BearFrameworkAddons\ActivityLoggerFactory', 'classes/ActivityLoggerFactory.php')
-        ->add('IvoPetkov\BearFrameworkAddons\ActivityLogger\*', 'classes/ActivityLogger/*.php');
+    ->add('IvoPetkov\BearFrameworkAddons\ActivityLogger', 'classes/ActivityLogger.php')
+    ->add('IvoPetkov\BearFrameworkAddons\ActivityLoggerFactory', 'classes/ActivityLoggerFactory.php')
+    ->add('IvoPetkov\BearFrameworkAddons\ActivityLogger\*', 'classes/ActivityLogger/*.php');
 
 $app->shortcuts
-        ->add('activityLogger', function() {
-            return new \IvoPetkov\BearFrameworkAddons\ActivityLoggerFactory();
-        });
+    ->add('activityLogger', function () {
+        return new \IvoPetkov\BearFrameworkAddons\ActivityLoggerFactory();
+    });
